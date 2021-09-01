@@ -3,9 +3,6 @@ terraform {
     nsxt = {
       source = "vmware/nsxt"
     }
-    vmc = {
-      source = "terraform-providers/vmc"
-    }
   }
 }
     
