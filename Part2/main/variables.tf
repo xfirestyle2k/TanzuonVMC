@@ -1,6 +1,6 @@
 
-variable "vmc_token"    {}
-variable "host"         {}
+variable "vmc_token"    {}  # in env variables
+variable "host"         {}  # in phase1.tfstate
 
 /*================
 Subnets IP ranges

@@ -14,8 +14,8 @@ data "terraform_remote_state" "phase1" {
 }
 
 provider "nsxt" {
-//  host                  = data.terraform_remote_state.phase1.outputs.proxy_url
-  host                  = var.host
+  host                  = data.terraform_remote_state.phase1.outputs.proxy_url
+//  host                  = var.host
   vmc_token             = var.vmc_token
   allow_unverified_ssl  = true
   enforcement_point     = "vmc-enforcementpoint"
