@@ -60,6 +60,7 @@ export TF_VAR_host=$(terraform output -state=./phase1.tfstate proxy_url)
 
 # read  -p $'Press enter to continue (^C to stop)...\n'
 cd ./Part2/main
+terraform init
 
 echo -e "\033[1m"   #Bold ON
 echo "===== PHASE 2: Security and Networking  ==========="
