@@ -5,7 +5,7 @@
 *.tfstate
 *.tfstate.*
 terraform.tfvars
-
+output*
 # Crash log files
 crash.log
 

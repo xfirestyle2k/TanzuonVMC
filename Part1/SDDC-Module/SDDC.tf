@@ -5,10 +5,6 @@ variable "region" {}
 variable "AWS_account" {}
 
 
-
-data "vmc_org" "my_org" {
-}
-
 data "vmc_connected_accounts" "my_accounts" {
   account_number = var.AWS_account
 }
