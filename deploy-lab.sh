@@ -29,19 +29,19 @@ echo ".....Exporting $TF_VAR_AWS_account"
 export TF_VAR_AWS_account=$TF_VAR_AWS_account
 echo ""
 
-#ACCESS="xxxxx"
-#read -p "Enter your AWS Access Key [default=$ACCESS]: " TF_VAR_access_key
-#TF_VAR_access_key="${TF_VAR_access_key:-$ACCESS}"
-#echo ".....Exporting $TF_VAR_access_key"
-#export TF_VAR_access_key=$TF_VAR_access_key
-#echo ""
+ACCESS="xxxxx"
+read -p "Enter your AWS Access Key [default=$ACCESS]: " TF_VAR_access_key
+TF_VAR_access_key="${TF_VAR_access_key:-$ACCESS}"
+echo ".....Exporting $TF_VAR_access_key"
+export TF_VAR_access_key=$TF_VAR_access_key
+echo ""
 
-#SECRET="xxxxx"
-#read -p "Enter your AWS Secret Key [default=$SECRET]: " TF_VAR_secret_key
-#TF_VAR_secret_key="${TF_VAR_secret_key:-$SECRET}"
-#echo ".....Exporting $TF_VAR_secret_key"
-#export TF_VAR_secret_key=$TF_VAR_secret_key
-#echo ""
+SECRET="xxxxx"
+read -p "Enter your AWS Secret Key [default=$SECRET]: " TF_VAR_secret_key
+TF_VAR_secret_key="${TF_VAR_secret_key:-$SECRET}"
+echo ".....Exporting $TF_VAR_secret_key"
+export TF_VAR_secret_key=$TF_VAR_secret_key
+echo ""
 
 
 #export ANSIBLE_HOST_KEY_CHECKING=False
@@ -52,13 +52,13 @@ echo ""
 echo -e "\033[1m"   #Bold ON
 echo "===== PHASE 1: Creating SDDC ==========="
 echo -e "\033[0m"   #Bold OFF
-cd ./Part1/main
-terraform init
-terraform apply -auto-approve
-cd ../../
-export TF_VAR_host=$(terraform output -state=./phase1.tfstate proxy_url)
+#cd ./Part1/main
+#terraform init
+#terraform apply -auto-approve
+#cd ../../
+#export TF_VAR_host=$(terraform output -state=./phase1.tfstate proxy_url)
 
-# read  -p $'Press enter to continue (^C to stop)...\n'
+read  -p $'Press enter to continue (^C to stop)...\n'
 cd ./Part2/main
 terraform init
 
@@ -70,12 +70,14 @@ echo ".....Importing CGW and MGW into Terraform phase2."
 if [[ ! -f ../../phase2.tfstate ]]
 then
   echo "Importing . . . . ."
-  terraform import -lock=false module.NSX.nsxt_policy_gateway_policy.mgw mgw/default
-  terraform import -lock=false module.NSX.nsxt_policy_gateway_policy.cgw cgw/default
+  terraform import -lock=false module.NSX-Module.nsxt_policy_gateway_policy.mgw mgw/default
+  terraform import -lock=false module.NSX-Module.nsxt_policy_gateway_policy.cgw cgw/default
 fi
 echo ".....CGW, MGW already imported."
 terraform apply -auto-approve
-
+read  -p $'Press enter to continue (^C to stop)...\n'
 echo -e "\033[1m"   #Bold ON
 echo "BOOM! Infrastructure is ready!"
 echo -e "\033[0m"   #Bold OFF
+
+read  -p $'Press enter to continue (^C to stop)...\n'

@@ -22,13 +22,13 @@ sa-east-1	      South America (São Paulo)
 =================*/
 
 
-variable "access_key"     {}      #in env variables
-variable "secret_key"     {}      #in env variables
+//variable "access_key"     {}      #in env variables
+//variable "secret_key"     {}      #in env variables
 variable "AWS_account"    {}      #in env variables
 variable "vmc_token"      {}      #in env variables
 variable "my_org_id"      {}      #in env variables
 
-variable "AWS_region"     {default = "eu-west-2"}
+variable "AWS_region"     {default = "us-west-2"}
 
 variable "TKG_net_name"   {default = "tkg-network"}
 variable "TKG_photon"     {default = "photon-3-v1.17.3_vmware.2"}

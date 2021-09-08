@@ -2,14 +2,14 @@
 Outputs from Various Module
 =================*/
 
-output "proxy_url"              {value = module.SDDC.proxy_url}
-output "vc_url"                 {value = module.SDDC.vc_url}
-output "GOVC_vc_url"            {value = module.SDDC.GOVC_vc_url}
-output "SDDC_mgmt"              {value = module.SDDC.SDDC_mgmt}
-output "cloud_username"         {value = module.SDDC.cloud_username}
+output "proxy_url"              {value = module.SDDC-Module.proxy_url}
+output "vc_url"                 {value = module.SDDC-Module.vc_url}
+output "GOVC_vc_url"            {value = module.SDDC-Module.GOVC_vc_url}
+output "SDDC_mgmt"              {value = module.SDDC-Module.SDDC_mgmt}
+output "cloud_username"         {value = module.SDDC-Module.cloud_username}
 output "cloud_password"         {
   sensitive = true
-  value = module.SDDC.cloud_password
+  value = module.SDDC-Module.cloud_password
 }
 /*output "TKG_IP"                 {value = module.EC2s.TKG_IP}
 output "TKG_DNS"                {value = module.EC2s.TKG_DNS}*/
