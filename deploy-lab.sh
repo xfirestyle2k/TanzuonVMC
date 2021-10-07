@@ -52,11 +52,11 @@ echo ""
 echo -e "\033[1m"   #Bold ON
 echo "===== PHASE 1: Creating SDDC ==========="
 echo -e "\033[0m"   #Bold OFF
-#cd ./Part1/main
-#terraform init
-#terraform apply -auto-approve
-#cd ../../
-#export TF_VAR_host=$(terraform output -state=./phase1.tfstate proxy_url)
+cd ./Part1/main
+terraform init
+terraform apply -auto-approve
+cd ../../
+export TF_VAR_host=$(terraform output -state=./phase1.tfstate proxy_url)
 
 read  -p $'Press enter to continue (^C to stop)...\n'
 cd ./Part2/main
